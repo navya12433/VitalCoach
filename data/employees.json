@@ -1,0 +1,37 @@
+[
+  {
+    "employee_id": "E001",
+    "goal": "Improve general fitness",
+    "fitness_level": "Beginner",
+    "work_style": "Mostly desk-based",
+    "preferred_activity": "Walking"
+  },
+  {
+    "employee_id": "E002",
+    "goal": "Improve sleep and daily energy",
+    "fitness_level": "Beginner",
+    "work_style": "Mostly desk-based",
+    "preferred_activity": "Light exercise"
+  },
+  {
+    "employee_id": "E003",
+    "goal": "Build strength",
+    "fitness_level": "Intermediate",
+    "work_style": "Hybrid",
+    "preferred_activity": "Strength training"
+  },
+  {
+    "employee_id": "E004",
+    "goal": "Increase daily physical activity",
+    "fitness_level": "Beginner",
+    "work_style": "Office-based",
+    "preferred_activity": "Walking and stretching"
+  },
+  {
+    "employee_id": "E005",
+    "goal": "Maintain an active lifestyle",
+    "fitness_level": "Intermediate",
+    "work_style": "Hybrid",
+    "preferred_activity": "Mixed activities"
+  }
+]
