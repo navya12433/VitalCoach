@@ -4,7 +4,7 @@
 
 VitalCoach is an AI-powered corporate wellness personalization system that generates safe and personalized wellness plans based on an employee's profile, wellness goal, fitness level, work style, and preferred activity.
 
-The system combines prompt engineering, structured LLM output, Retrieval-Augmented Generation (RAG), safety validation, progress tracking, and anonymous HR analytics.
+The system combines prompt engineering, structured LLM output, Retrieval-Augmented Generation (RAG), safety validation, progress tracking, and pseudonymous HR analytics.
 
 ---
 
@@ -46,7 +46,9 @@ Safety-based Regeneration
        ↓
 Progress Tracking
        ↓
-Anonymous HR Analytics
+Pseudonymous HR Analytics
+```
+
 ---
 
 ## 🧠 Prompt Engineering Techniques
@@ -76,9 +78,12 @@ The system prompt explicitly restricts:
 
 The generated wellness plan is returned using a Pydantic `WellnessPlan` schema.
 
+The safety evaluation is returned using a structured `SafetyAssessment` schema.
+
 ### 5. Safety feedback prompting
 
 If a generated plan receives a `REVIEW` status, the identified safety issues are passed back to the generation prompt so that the next generation can correct those issues.
+
 ---
 
 ## 📚 Retrieval-Augmented Generation (RAG)
@@ -107,6 +112,10 @@ Similarity Retrieval
 Relevant Guidance
        ↓
 Wellness Plan Generation
+```
+
+The RAG pipeline retrieves relevant guidance before generating the personalized wellness plan.
+
 ---
 
 ## 🛡️ Safety and Validation
@@ -160,6 +169,8 @@ Safety Feedback
 Regenerate Plan
      ↓
 Safety Check
+```
+
 ---
 
 ## 🧪 Evaluation
@@ -191,6 +202,8 @@ Regenerate
 Corrected Plan
     ↓
 Safety Check → SAFE
+```
+
 ---
 
 ## ✨ Key Features
@@ -204,17 +217,20 @@ Safety Check → SAFE
 - LLM-based safety evaluation
 - Safety-feedback-based plan regeneration
 - Employee progress tracking
-- Anonymous employee identifiers for analytics
+- Pseudonymous employee identifiers for analytics
 - HR wellness analytics dashboard
 - Streamlit-based interactive interface
+
 ---
 
 ## 🛠️ Technologies Used
 
 ### Programming Language
+
 - Python
 
 ### LLM and Prompt Engineering
+
 - Groq LLM
 - LangChain
 - LangChain Expression Language (LCEL)
@@ -222,28 +238,35 @@ Safety Check → SAFE
 - Structured output prompting
 
 ### RAG
+
 - PyPDFLoader
 - RecursiveCharacterTextSplitter
 - HuggingFace Embeddings
 - FAISS
 
 ### Validation and Safety
+
 - Pydantic
 - Deterministic safety rules
 - LLM-based safety judge
 
 ### Frontend
+
 - Streamlit
 
 ### Data and Analytics
+
 - JSON
 - Pandas
 
 ### Development Tools
+
 - VS Code
 - Python Virtual Environment
 - Git / GitHub
+
 ---
+
 ## 📁 Project Structure
 
 ```text
@@ -289,6 +312,10 @@ VitalCoach/
 └── utils/
     ├── anonymization.py
     └── analytics.py
+```
+
+---
+
 ## ⚠️ Limitations
 
 - VitalCoach provides general wellness guidance and is not a medical diagnostic system.
@@ -297,6 +324,7 @@ VitalCoach/
 - LLM-generated recommendations may require human review in real-world corporate wellness deployments.
 - Pseudonymous employee IDs are used for analytics; they should not be treated as complete anonymization by themselves.
 - The current prototype uses sample employee and progress data.
+
 ---
 
 ## 📌 Project Status
