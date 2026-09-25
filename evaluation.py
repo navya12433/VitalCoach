@@ -73,7 +73,7 @@ def evaluate_safety(plan):
 
 def evaluate_anonymization():
     """
-    Check whether employee IDs are transformed into anonymous identifiers.
+    Check whether employee IDs are transformed into pseudonymous identifiers.
     """
 
     original_id = "E001"
@@ -126,12 +126,62 @@ def run_evaluation(plan, employee_profile):
 if __name__ == "__main__":
 
     print("=" * 60)
-    print("VitalCoach Evaluation Module")
+    print("VitalCoach Evaluation")
     print("=" * 60)
 
-    print("\nEvaluation module created successfully.")
-    print("It evaluates:")
-    print("1. Structured JSON validity")
-    print("2. Personalization")
-    print("3. Safety")
-    print("4. Anonymization")
+    employee_profile = {
+        "employee_id": "E001",
+        "goal": "Improve general fitness",
+        "fitness_level": "Beginner",
+        "work_style": "Mostly desk-based",
+        "preferred_activity": "Walking"
+    }
+
+    sample_plan = WellnessPlan(
+        employee_id="E001",
+        goal="Improve general fitness",
+        fitness_level="Beginner",
+        weekly_activity_target=(
+            "Gradually work toward 150 minutes of moderate "
+            "activity per week through walking"
+        ),
+        exercise_plan=[
+            "Begin with 20-30 minute walking sessions on most days",
+            "Add light strength exercises 2 days per week"
+        ],
+        nutrition_guidelines=[
+            "Eat a balanced diet with vegetables, fruits, "
+            "whole grains, and lean protein"
+        ],
+        hydration_target=(
+            "Drink water regularly throughout the day"
+        ),
+        sleep_target=(
+            "Aim for 7-9 hours of sleep per night"
+        ),
+        safety_notes=[
+            "Start gradually and stop if you feel unusual "
+            "pain, dizziness, or feel unwell"
+        ]
+    )
+
+    results = run_evaluation(
+        sample_plan,
+        employee_profile
+    )
+
+    print("\nEvaluation Results:")
+    print("-" * 60)
+
+    for result in results:
+
+        print(f"\nCriterion: {result['criterion']}")
+        print(f"Status: {result['status']}")
+        print(f"Details: {result['details']}")
+
+        if "issues" in result:
+            print(f"Issues: {result['issues']}")
+
+    print("\n" + "=" * 60)
+    print("Evaluation completed.")
+    print("=" * 60)

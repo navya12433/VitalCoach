@@ -1,10 +1,15 @@
 from typing import List
 
+from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 
 from prompts.safety_prompt import SAFETY_PROMPT
 from models.wellness_schema import SafetyAssessment
+
+
+# Load environment variables from .env
+load_dotenv()
 
 
 def check_safety(plan) -> dict:
